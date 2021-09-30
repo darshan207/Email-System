@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Email_System.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="Email_System.Login" %>
+
 
 <!DOCTYPE html>
 
@@ -16,6 +17,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.css" integrity="sha512-4wfcoXlib1Aq0mUtsLLM74SZtmB73VHTafZAvxIp/Wk9u1PpIsrfmTvK0+yKetghCL8SHlZbMyEcV8Z21v42UQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <form runat="server">
         <asp:ScriptManager runat="server">
@@ -34,26 +36,67 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
+
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <div class="wrapper">
-            <div class="sidebar">
-                <div class="compose-button" style="text-align:center">
-                    <a runat="server" href="~/"><i class="far fa-edit"></i>Compose</a>
-                </div>
-                <ul>
-                    <li><a runat="server" href="~/Pages/Inbox"><i class="fas fa-inbox"></i>Inbox</a></li>
-                    <li><a runat="server" href="~/Pages/Starred"><i class="fas fa-star"></i>Starred</a></li>
-                    <li><a runat="server" href="~/Pages/Sent"><i class="fas fa-paper-plane"></i>Sent</a></li>
-                    <li><a runat="server" href="~/Pages/Drafts"><i class="fas fa-file-alt"></i>Drafts</a></li>
-                    <li><a runat="server" href="~/Pages/AllMail"><i class="fas fa-envelope"></i>All Mail</a></li>
-                    <li><a runat="server" href="~/Pages/Trash"><i class="fa fa-trash"></i> Trash</a></li>
-                    <li><a runat="server" href="~/Pages/About">About</a></li>
-                    <li><a runat="server" href="~/Pages/Contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="main_content">
+
+        <div class="login-wrap">
+			<div class="login-html">
+				<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+				<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+				<div class="login-form">
+					<div class="sign-in-htm">
+						<div class="group">
+							<label for="user" class="label">Username</label>
+							<input id="user" type="text" class="input">
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Password</label>
+							<input id="pass" type="password" class="input" data-type="password">
+						</div>
+						<div class="group">
+							<input id="check" type="checkbox" class="check" checked>
+							<label for="check"><span class="icon"></span> Keep me Signed in</label>
+						</div>
+						<div class="group">
+							<asp:Button ID="signin" runat="server" Text="Sign In" class="button"/>
+						</div>
+						<div class="hr"></div>
+						<div class="foot-lnk">
+							<a href="~/Pages/forgot">Forgot Password?</a>
+						</div>
+					</div>
+					<div class="sign-up-htm">
+						<div class="group">
+							<label for="user" class="label">Username</label>
+							<input id="user" type="text" class="input">
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Email Address</label>
+							<input id="pass" type="text" class="input">
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Password</label>
+							<input id="pass" type="password" class="input" data-type="password">
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Repeat Password</label>
+							<input id="pass" type="password" class="input" data-type="password">
+						</div>
+						<div class="group">
+							<asp:Button ID="signup" runat="server" Text="Sign Up" class="button" OnClick="signup_Click"/>
+						</div>
+						<div class="hr"></div>
+						<div class="foot-lnk">
+							<label for="tab-1">Already Member?</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="main_content">
                 <div class="info">
                     <div class="container body-content">
                         <asp:ContentPlaceHolder ID="MainContent" runat="server">
@@ -65,7 +108,7 @@
                     </div>
                 </div>
             </div>
-        </div>
     </form>
 </body>
 </html>
+
