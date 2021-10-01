@@ -20,8 +20,8 @@ namespace Email_System
                             "~/Scripts/WebForms/GridView.js",
                             "~/Scripts/WebForms/DetailsView.js",
                             "~/Scripts/WebForms/TreeView.js",
-                            "~/Scripts/WebForms/WebParts.js",
-                            "~/Scripts/ownscript.js"));
+                            "~/Scripts/WebForms/WebParts.js"
+                            ));
 
             // Order is very important for these files to work, they have explicit dependencies
             bundles.Add(new ScriptBundle("~/bundles/MsAjaxJs").Include(
