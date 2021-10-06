@@ -1,0 +1,161 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="Email_System.Login" %>
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> Email System</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.css" integrity="sha512-4wfcoXlib1Aq0mUtsLLM74SZtmB73VHTafZAvxIp/Wk9u1PpIsrfmTvK0+yKetghCL8SHlZbMyEcV8Z21v42UQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/Content/style.css" />
+</head>
+
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <%--<div class="login-wrap">
+			<div class="login-html">
+				<input id="tab-1" type="radio" name="tab" class="sign-in" Checked><label for="tab-1" class="tab">Sign In</label>
+				<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+				<div class="login-form">
+					<div class="sign-in-htm">
+						<div class="group">
+							<label for="user" class="label">Username</label>
+							<asp:TextBox runat="server" id="user" type="text" class="input"></asp:TextBox>
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Password</label>
+							<asp:TextBox runat="server" id="pass" type="password" class="input" data-type="password"></asp:TextBox>
+						</div>
+						<div class="group">
+							<input id="check" type="checkbox" class="check" checked>
+							<label for="check"><span class="icon"></span> Keep me Signed in</label>
+						</div>
+						<div class="group">
+							<asp:Button ID="signin" runat="server" Text="Sign In" class="button"/>
+						</div>
+						<div class="hr"></div>
+						<div class="foot-lnk">
+							<a href="~/Pages/forgot">Forgot Password?</a>
+						</div>
+					</div>
+					<div class="sign-up-htm">
+						<div class="group">
+							<label for="user" class="label">Username</label>
+							<asp:TextBox runat="server" ID="username" type="text" class="input"></asp:TextBox>
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Password</label>
+							<asp:TextBox runat="server" ID="password" type="password" class="input" data-type="password"></asp:TextBox>
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Repeat Password</label>
+							<asp:TextBox runat="server" ID="c_password" type="password" class="input" data-type="password"></asp:TextBox>
+						</div>
+						<div class="group">
+							<asp:Button ID="signup" runat="server" Text="Sign Up" class="button" OnClick="signup_Click"/>
+						</div>
+						<div class="hr"></div>
+						<div class="foot-lnk">
+							<a for="tab-1">Already Member?</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>--%>
+		<div class="form-structor">
+            <div class="signup">
+                <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+                <div class="form-holder">
+                    <asp:TextBox ID="username" runat="server" class="input" placeholder="Name" />
+                    <asp:TextBox ID="email" runat="server" type="email" class="input" placeholder="Email" />
+                    <asp:TextBox ID="password" runat="server" type="password" class="input" placeholder="Password" />
+                </div>
+                <asp:Button runat="server" Text="Sign-Up" class="submit-btn" OnClick="signup_Click"/>
+            </div>
+            <div class="login slide-up">
+                <div class="center">
+                    <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+                    <div class="form-holder">
+                        <input type="email" class="input" placeholder="Email" />
+                        <input type="password" class="input" placeholder="Password" />
+                    </div>
+                    <asp:Button runat="server" Text="Login" class="submit-btn" />
+                </div>
+            </div>
+        </div>
+        <div class="main_content">
+                <div class="info">
+                    <div class="container body-content">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <hr />
+                        <footer>
+                            <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+    </form>
+    <script type="text/javascript">
+        console.clear();
+
+        const loginBtn = document.getElementById('login');
+        const signupBtn = document.getElementById('signup');
+
+        loginBtn.addEventListener('click', (e) => {
+            let parent = e.target.parentNode.parentNode;
+            Array.from(e.target.parentNode.parentNode.classList).find((element) => {
+                if (element !== "slide-up") {
+                    parent.classList.add('slide-up')
+                } else {
+                    signupBtn.parentNode.classList.add('slide-up')
+                    parent.classList.remove('slide-up')
+                }
+            });
+        });
+
+        signupBtn.addEventListener('click', (e) => {
+            let parent = e.target.parentNode;
+            Array.from(e.target.parentNode.classList).find((element) => {
+                if (element !== "slide-up") {
+                    parent.classList.add('slide-up')
+                } else {
+                    loginBtn.parentNode.parentNode.classList.add('slide-up')
+                    parent.classList.remove('slide-up')
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
