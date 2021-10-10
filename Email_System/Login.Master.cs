@@ -18,11 +18,19 @@ namespace Email_System
         protected void signup_Click(object sender, EventArgs e)
         {
             EmailDbContext db = new EmailDbContext();
-            User user = new User { uname=username.Text,pass=password.Text};
-            db.Users.Add(user);
-            db.SaveChanges();
-
-            Response.Redirect("~/Pages/Inbox");
+            User u = db.Users.Where(b => b.uname == username.Text).FirstOrDefault();
+            if (u == null)
+            {
+                User user = new User { uname = username.Text, pass = password.Text };
+                db.Users.Add(user);
+                db.SaveChanges();
+                Application["user"] = user.uname;
+                Response.Redirect("~/Pages/Inbox");
+            }
+            else
+            {
+                Response.Redirect("~/");
+            }
         }
     }
 }
