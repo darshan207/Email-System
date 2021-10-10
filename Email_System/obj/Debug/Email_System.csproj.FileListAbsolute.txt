@@ -302,3 +302,6 @@ D:\github\Email-System\Email_System\obj\Debug\Email_System.csproj.CoreCompileInp
 D:\github\Email-System\Email_System\obj\Debug\Email_System.csproj.CopyComplete
 D:\github\Email-System\Email_System\obj\Debug\Email_System.dll
 D:\github\Email-System\Email_System\obj\Debug\Email_System.pdb
+C:\Users\ronak\Desktop\WDDN_Project\Email-System\Email_System\obj\Debug\Email_System.Migrations.InitialCreate.resources
+C:\Users\ronak\Desktop\WDDN_Project\Email-System\Email_System\obj\Debug\Email_System.csproj.GenerateResource.cache
+C:\Users\ronak\Desktop\WDDN_Project\Email-System\Email_System\obj\Debug\Email_System.Migrations.changes.resources

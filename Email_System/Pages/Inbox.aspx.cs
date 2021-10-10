@@ -11,7 +11,7 @@ namespace Email_System.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Label1.Text = (string)Application["user"];
         }
     }
 }
