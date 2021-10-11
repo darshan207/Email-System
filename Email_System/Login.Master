@@ -96,9 +96,16 @@
             <div class="signup">
                 <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
                 <div class="form-holder">
+                    <br />
                     <asp:TextBox ID="username" runat="server" class="input" placeholder="Name" />
-                    <asp:TextBox ID="email" runat="server" type="email" class="input" placeholder="Email" />
-                    <asp:TextBox ID="password" runat="server" type="password" class="input" placeholder="Password" />
+                        <asp:RequiredFieldValidator ForeColor="Red" ControlToValidate="username" ID="RequiredFieldValidator1" runat="server" ErrorMessage="UserName must be required!"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="password" runat="server" type="password" class="input" placeholder="Password"/>
+                        <asp:RequiredFieldValidator ForeColor="Red" ControlToValidate="password" ID="RequiredFieldValidator2" runat="server" ErrorMessage="PassWord must be required!"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="c_password" runat="server" type="password" class="input" placeholder="Confirm Password"/>
+                        <asp:RequiredFieldValidator ForeColor="Red" ControlToValidate="c_password" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Confirm Password must be required!"></asp:RequiredFieldValidator>
+                        <br />
+                        <asp:CompareValidator ForeColor="Red" ID="CompareValidator1" ControlToValidate="password" ControlToCompare="c_password" runat="server" ErrorMessage="Passwords are not match !"></asp:CompareValidator>
+                    <br />
                 </div>
                 <asp:Button runat="server" Text="Sign-Up" class="submit-btn" OnClick="signup_Click"/>
             </div>
