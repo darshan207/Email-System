@@ -15,14 +15,31 @@ namespace Email_System
 
         }
 
-        protected void signup_Click(object sender, EventArgs e)
+        protected void Signup_Click(object sender, EventArgs e)
         {
             EmailDbContext db = new EmailDbContext();
-            User user = new User { uname=username.Text,pass=password.Text};
-            db.Users.Add(user);
-            db.SaveChanges();
-
-            Response.Redirect("~/Pages/Inbox");
+            User u = db.Users.Where(b => b.UserName == username.Text).FirstOrDefault();
+            if (u == null)
+            {
+                User user = new User { UserName = username.Text, UserPass = password.Text };
+                db.Users.Add(user);
+                db.SaveChanges();
+                Session["user"] = user.UserName;
+                Response.Redirect("~/Pages/Inbox");
+            }
+            else
+            {
+                Response.Redirect("~/");
+            }
+        }
+        protected void Login_Click(object sender, EventArgs e)
+        {
+            EmailDbContext db = new EmailDbContext();
+            User u = db.Users.Where(b => b.UserName == TextBox1.Text).FirstOrDefault();
+            if (u == null)
+            {
+                Application["user"] = "You have no email accounts here better fiirst make one;";
+            }
         }
     }
 }

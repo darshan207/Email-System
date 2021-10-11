@@ -7,11 +7,12 @@ using System.Web.UI.WebControls;
 
 namespace Email_System
 {
-    public partial class _Default : Page
+    public partial class Default : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
     }
 }

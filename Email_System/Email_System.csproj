@@ -111,9 +111,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\emaildb.mdf" />
+    <Content Include="App_Data\emaildb_log.ldf" />
+    <Content Include="Content\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\AllMail.aspx" />
+    <Content Include="Pages\Compose.aspx" />
     <Content Include="Pages\Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -136,6 +140,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Login.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Pages\Logout.aspx" />
     <Content Include="Pages\Sent.aspx" />
     <Content Include="Pages\Starred.aspx" />
     <Content Include="Pages\Trash.aspx" />
@@ -183,7 +188,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EmailDbContext.cs" />
+    <Compile Include="Migrations\202110041012473_InitialCreate.cs" />
+    <Compile Include="Migrations\202110041012473_InitialCreate.Designer.cs">
+      <DependentUpon>202110041012473_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110111844163_changeInDbContext.cs" />
+    <Compile Include="Migrations\202110111844163_changeInDbContext.Designer.cs">
+      <DependentUpon>202110111844163_changeInDbContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110111851531_MinorChangeInModels.cs" />
+    <Compile Include="Migrations\202110111851531_MinorChangeInModels.Designer.cs">
+      <DependentUpon>202110111851531_MinorChangeInModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\EmailDbContext.cs" />
     <Compile Include="Login.Master.cs">
       <DependentUpon>Login.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,7 +209,9 @@
     <Compile Include="Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserEmailService.cs" />
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -206,6 +226,13 @@
     </Compile>
     <Compile Include="Pages\AllMail.aspx.designer.cs">
       <DependentUpon>AllMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Compose.aspx.cs">
+      <DependentUpon>Compose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Compose.aspx.designer.cs">
+      <DependentUpon>Compose.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -230,6 +257,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Sent.aspx.cs">
       <DependentUpon>Sent.aspx</DependentUpon>
@@ -276,9 +310,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
@@ -288,6 +319,17 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202110041012473_InitialCreate.resx">
+      <DependentUpon>202110041012473_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110111844163_changeInDbContext.resx">
+      <DependentUpon>202110111844163_changeInDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110111851531_MinorChangeInModels.resx">
+      <DependentUpon>202110111851531_MinorChangeInModels.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
