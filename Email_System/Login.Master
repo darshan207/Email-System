@@ -107,28 +107,25 @@
                         <asp:CompareValidator ForeColor="Red" ID="CompareValidator1" ControlToValidate="password" ControlToCompare="c_password" runat="server" ErrorMessage="Passwords are not match !"></asp:CompareValidator>
                     <br />
                 </div>
-                <asp:Button runat="server" Text="Sign-Up" class="submit-btn" OnClick="signup_Click"/>
+                <asp:Button runat="server" Text="Sign-Up" class="submit-btn" OnClick="Signup_Click"/>
             </div>
             <div class="login slide-up">
                 <div class="center">
                     <h2 class="form-title" id="login"><span>or</span>Log in</h2>
                     <div class="form-holder">
-                        <input type="email" class="input" placeholder="Email" />
-                        <input type="password" class="input" placeholder="Password" />
+                        <asp:TextBox ID="TextBox1" runat="server" class="input" placeholder="Name" />
+                        <!--<input type="email" class="input" placeholder="Email" />-->
+                        <!--<input type="password" class="input" placeholder="Password" />-->
                     </div>
-                    <asp:Button runat="server" Text="Login" class="submit-btn" />
+                    <asp:Button runat="server" Text="Login" class="submit-btn" OnClick="Login_Click"/>
                 </div>
             </div>
         </div>
-        <div class="main_content">
+        <div class="main_content" style="height:100%">
                 <div class="info">
                     <div class="container body-content">
                         <asp:ContentPlaceHolder ID="MainContent" runat="server">
                         </asp:ContentPlaceHolder>
-                        <hr />
-                        <footer>
-                            <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-                        </footer>
                     </div>
                 </div>
             </div>
