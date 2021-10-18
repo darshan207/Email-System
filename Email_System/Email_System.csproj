@@ -160,9 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\emaildb.mdf" />
-    <Content Include="App_Data\emaildb_log.ldf">
-      <DependentUpon>emaildb.mdf</DependentUpon>
-    </Content>
+    <Content Include="App_Data\emaildb_log.ldf" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -342,17 +340,11 @@
     <Compile Include="Migrations\202110111851531_MinorChangeInModels.Designer.cs">
       <DependentUpon>202110111851531_MinorChangeInModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202110180438423_fname.cs" />
-    <Compile Include="Migrations\202110180438423_fname.designer.cs">
-      <DependentUpon>202110180438423_fname.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110180450401_updatefname.cs" />
-    <Compile Include="Migrations\202110180450401_updatefname.designer.cs">
-      <DependentUpon>202110180450401_updatefname.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110180501084_dobAndlnameAdded.cs" />
-    <Compile Include="Migrations\202110180501084_dobAndlnameAdded.designer.cs">
-      <DependentUpon>202110180501084_dobAndlnameAdded.cs</DependentUpon>
+    <Compile Include="Migrations\202110181332022_User-Schema-Add-Info.cs" />
+    <Compile Include="Migrations\202110181332022_User-Schema-Add-Info.Designer.cs" />
+    <Compile Include="Migrations\202110181508411_Email-Schema-User_Id-Remove.cs" />
+    <Compile Include="Migrations\202110181508411_Email-Schema-User_Id-Remove.designer.cs">
+      <DependentUpon>202110181508411_Email-Schema-User_Id-Remove.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EmailDbContext.cs" />
@@ -365,7 +357,6 @@
     </Compile>
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserEmailService.cs" />
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -508,14 +499,8 @@
     <EmbeddedResource Include="Migrations\202110111851531_MinorChangeInModels.resx">
       <DependentUpon>202110111851531_MinorChangeInModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110180438423_fname.resx">
-      <DependentUpon>202110180438423_fname.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110180450401_updatefname.resx">
-      <DependentUpon>202110180450401_updatefname.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110180501084_dobAndlnameAdded.resx">
-      <DependentUpon>202110180501084_dobAndlnameAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202110181508411_Email-Schema-User_Id-Remove.resx">
+      <DependentUpon>202110181508411_Email-Schema-User_Id-Remove.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

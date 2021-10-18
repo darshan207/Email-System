@@ -15,7 +15,6 @@ namespace Email_System.Models
         public string UserFirstName { get; set; }
         [Required]
         public string UserLastName { get; set; }
-
         [Required]
         public DateTime DOB { get; set; }
         [Required]

@@ -4,7 +4,16 @@
     <asp:Label ID="Label1" runat="server" Text="Hii"></asp:Label>
     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
 
-
+    <asp:GridView ID="GridView1" runat="server">
+        <Columns>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"
+                            CommandArgument='<%# Eval("Id") %>'></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+    </asp:GridView>
 
 </asp:Content>
 
