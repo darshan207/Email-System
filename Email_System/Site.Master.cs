@@ -13,5 +13,10 @@ namespace Email_System
         {
 
         }
+
+        protected void User_Logged_Out(object sender, EventArgs e)
+        {
+            Session.Remove("user");
+        }
     }
 }

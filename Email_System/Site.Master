@@ -39,8 +39,8 @@
         </asp:ScriptManager>
         <div class="wrapper">
             <div class="sidebar">
-                <div class="compose-button" style="text-align:center">
-                    <a runat="server" href="~/"><i class="far fa-edit"></i>Compose</a>
+                <div class="compose-button" style="text-align: center">
+                    <a runat="server" href="~/Pages/Compose"><i class="far fa-edit"></i>Compose</a>
                 </div>
                 <ul>
                     <li><a runat="server" href="~/Pages/Inbox"><i class="fas fa-inbox"></i>Inbox</a></li>
@@ -48,21 +48,18 @@
                     <li><a runat="server" href="~/Pages/Sent"><i class="fas fa-paper-plane"></i>Sent</a></li>
                     <li><a runat="server" href="~/Pages/Drafts"><i class="fas fa-file-alt"></i>Drafts</a></li>
                     <li><a runat="server" href="~/Pages/AllMail"><i class="fas fa-envelope"></i>All Mail</a></li>
-                    <li><a runat="server" href="~/Pages/Trash"><i class="fa fa-trash"></i> Trash</a></li>
+                    <li><a runat="server" href="~/Pages/Trash"><i class="fas fa-trash"></i>Trash</a></li>
                     <li><a runat="server" href="~/Pages/About">About</a></li>
                     <li><a runat="server" href="~/Pages/Contact">Contact</a></li>
                 </ul>
+                <div class="compose-button" style="text-align: center">
+                    <a runat="server" href="~/Pages/Logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </div>
             </div>
             <div class="main_content">
-                <div class="info">
-                    <div class="container body-content">
-                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                        </asp:ContentPlaceHolder>
-                        <hr />
-                        <footer>
-                            <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-                        </footer>
-                    </div>
+                <div class="container body-content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
                 </div>
             </div>
         </div>

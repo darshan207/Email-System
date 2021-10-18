@@ -11,7 +11,11 @@ namespace Email_System.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = (string)Application["user"];
+            if (Session["user"] == null && Session["email"] == null){
+                Response.Redirect("~/");
+            }
+            Label1.Text = (string)Session["user"];
+            Label2.Text = (string)Session["email"];
         }
     }
 }
