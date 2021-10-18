@@ -20,7 +20,6 @@ namespace Email_System
         }
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["user"] = null;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
