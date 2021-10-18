@@ -12,6 +12,8 @@ namespace Email_System.Models
         public int Id { get; set; }
         [Required]
         public UserEmailService UserEmailService { get; set; }
+
+        public int UserId { get; set; }
         [Required]
         public int ToUserId { get; set; }
         public string EmailSubject { get; set; }

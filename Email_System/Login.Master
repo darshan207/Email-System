@@ -16,7 +16,9 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.css" integrity="sha512-4wfcoXlib1Aq0mUtsLLM74SZtmB73VHTafZAvxIp/Wk9u1PpIsrfmTvK0+yKetghCL8SHlZbMyEcV8Z21v42UQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="~/Content/style.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
 </head>
 
 <body>
@@ -92,13 +94,76 @@
 				</div>
 			</div>
 		</div>--%>
-		<div class="form-structor">
+
+        <div class="pos-f-t">
+          <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <div class="d-flex justify-content-end">
+                    <asp:Button ID="login" class="btn btn-light" OnClick="l_click" runat="server" Text="Login" />
+                    &nbsp;
+                    &nbsp;
+                    <asp:Button ID="signup" class="btn btn-light" OnClick="s_click" runat="server" Text="SignUp" />
+                </div>
+            </div>
+          </div>
+          <nav class="navbar navbar-dark bg-dark d-flex">
+            <div class="mr-auto p-2">
+                <asp:HyperLink ID="home" runat="server" NavigateUrl="~/">Home</asp:HyperLink>
+            </div>
+            <div class="p-2">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+          </nav>
+        </div>
+
+        <!--
+        <div class="container">
+            <div class="w-100 p-3">
+                <asp:Image ID="Image1" ImageUrl="~/email1.png"  class="img-fluid" runat="server" />
+            </div>
+        </div>
+        -->
+
+        <div id="carouselExampleIndicators" class="carousel slide container" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active bg-dark"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1" class="bg-dark"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2" class="bg-dark"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active p-3">
+              <asp:Image ID="Image5" ImageUrl="~/email1.png" class="myimage" runat="server" />
+            </div>
+            <div class="carousel-item p-3">
+              <asp:Image ID="Image6" ImageUrl="~/email2.png" class="myimage" runat="server" />
+            </div>
+            <div class="carousel-item p-3">
+              <asp:Image ID="Image7" ImageUrl="~/email3.jpg" class="myimage"  runat="server" />
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+    </form>
+
+<%--
+        <div class="form-structor">
             <div class="signup">
                 <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
                 <div class="form-holder">
                     <br />
-                    <asp:TextBox ID="username" runat="server" class="input" placeholder="Name" />
+                    <asp:TextBox ID="username" runat="server" class="input" placeholder="Name"/>
                         <asp:RequiredFieldValidator ForeColor="Red" ControlToValidate="username" ID="RequiredFieldValidator1" runat="server" ErrorMessage="UserName must be required!"></asp:RequiredFieldValidator>
+                        <br />
+                        <asp:Label ID="UserIsExistError" ForeColor="Red" runat="server" Text=""></asp:Label>
                     <asp:TextBox ID="password" runat="server" type="password" class="input" placeholder="Password"/>
                         <asp:RequiredFieldValidator ForeColor="Red" ControlToValidate="password" ID="RequiredFieldValidator2" runat="server" ErrorMessage="PassWord must be required!"></asp:RequiredFieldValidator>
                     <asp:TextBox ID="c_password" runat="server" type="password" class="input" placeholder="Confirm Password"/>
@@ -113,7 +178,13 @@
                 <div class="center">
                     <h2 class="form-title" id="login"><span>or</span>Log in</h2>
                     <div class="form-holder">
-                        <asp:TextBox ID="TextBox1" runat="server" class="input" placeholder="Name" />
+                        <asp:TextBox ID="Uname" runat="server" class="input" placeholder="Name" />
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ForeColor="Red" ControlToValidate="Uname" runat="server" ErrorMessage="UserName must be required !"></asp:RequiredFieldValidator>
+                            <br />
+                            <asp:Label ID="UserNotExistError" ForeColor="Red" runat="server" Text=""></asp:Label>
+                        <asp:TextBox ID="Pass" runat="server" type="password" class="input" placeholder="Password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ForeColor="Red" ControlToValidate="Pass" runat="server" ErrorMessage="Password must be Required !"></asp:RequiredFieldValidator>
+                            <asp:Label ID="LoginFailed" runat="server" ForeColor="Red" Text=""></asp:Label>
                         <!--<input type="email" class="input" placeholder="Email" />-->
                         <!--<input type="password" class="input" placeholder="Password" />-->
                     </div>
@@ -122,14 +193,15 @@
             </div>
         </div>
         <div class="main_content" style="height:100%">
-                <div class="info">
-                    <div class="container body-content">
-                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                        </asp:ContentPlaceHolder>
-                    </div>
+            <div class="info">
+                <div class="container body-content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
                 </div>
             </div>
+        </div>
     </form>
+
     <script type="text/javascript">
         console.clear();
 
@@ -160,6 +232,68 @@
             });
         });
     </script>
+
+--%>
+
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+      <div class="container">
+
+          <div class="d-block p-2 bg-dark text-white text-center m-2">
+              Contributors
+          </div>
+        <div class="row d-flex justify-content-between">
+
+          <div class="col-lg-2 col-md-12 mb-4 bg-info text-light">
+            <div class="view overlay z-depth-1-half">
+              <asp:Image ID="Image2" ImageUrl="~/email1.png"  class="rounded mx-auto d-block myphoto" runat="server" />
+            </div>
+            <div class="view overlay z-depth-1-half m-2">
+                Parmar Darshan
+                <br />
+                Sem-5
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 mb-4 bg-info text-light">
+            <div class="view overlay z-depth-1-half">
+              <asp:Image ID="Image3" ImageUrl="~/email2.png" class="rounded mx-auto d-block myphoto" runat="server" />
+            </div>
+            <div class="view overlay z-depth-1-half m-2">
+               Padaliya Ronak
+                <br />
+                Sem-5
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 mb-4 bg-info text-light">
+            <div class="view overlay z-depth-1-half">
+              <asp:Image ID="Image4" ImageUrl="~/email3.jpg"  class="rounded mx-auto d-block myphoto" runat="server" />
+            </div>
+            <div class="view overlay z-depth-1-half m-2">
+                Gohel Chandresh
+                <br />
+                Sem-5
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="footer-copyright text-center py-3">© 2021 Copyright:
+        <a href="/"> MyEmail</a>
+      </div>
+    </footer>
+
+     <div class="main_content" style="height:100%">
+            <div class="info">
+                <div class="container body-content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+      
 </body>
 </html>
 

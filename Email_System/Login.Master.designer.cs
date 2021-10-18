@@ -15,76 +15,94 @@ namespace Email_System
     {
 
         /// <summary>
-        /// username control.
+        /// login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox username;
+        protected global::System.Web.UI.WebControls.Button login;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// signup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Button signup;
 
         /// <summary>
-        /// password control.
+        /// home control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.HyperLink home;
 
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// Image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
-        /// c_password control.
+        /// Image5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox c_password;
+        protected global::System.Web.UI.WebControls.Image Image5;
 
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// Image6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.Image Image6;
 
         /// <summary>
-        /// CompareValidator1 control.
+        /// Image7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        protected global::System.Web.UI.WebControls.Image Image7;
 
         /// <summary>
-        /// TextBox1 control.
+        /// Image2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Image Image2;
+
+        /// <summary>
+        /// Image3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image3;
+
+        /// <summary>
+        /// Image4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image4;
 
         /// <summary>
         /// MainContent control.
