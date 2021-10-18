@@ -1,6 +1,17 @@
 ﻿@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 
 
+.myimage {
+    max-width: 100%;
+    height: 600px;
+    width: 100%;
+}
+
+.myphoto {
+    height: 100px;
+    width: 175px;
+}
+
 .form-structor {
     background-color: #222;
     border-radius: 15px;
