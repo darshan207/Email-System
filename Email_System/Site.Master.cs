@@ -11,7 +11,10 @@ namespace Email_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] != null)
+            {
+                Label12.Text = (string)Session["user"];
+            }
         }
 
         protected void User_Logged_Out(object sender, EventArgs e)

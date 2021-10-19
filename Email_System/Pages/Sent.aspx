@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Sent.aspx.cs" Inherits="Email_System.Pages.Sent" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    Sent<br />
+    
+    <nav class="navbar navbar-light bg-primary">
+      <div class="container-fluid justify-content-center">
+        <h1 class="text-light">Sent</h1>
+      </div>
+    </nav>
+
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Horizontal" Width="100%">
          <Columns>
             <asp:BoundField DataField="EMailSubject" HeaderText="Mail Subject" SortExpression="EMailSubject" />

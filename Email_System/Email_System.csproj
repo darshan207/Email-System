@@ -168,23 +168,23 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\login.css" />
+    <Content Include="Content\profile.css" />
     <Content Include="Content\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="email1.png" />
     <Content Include="email2.png" />
     <Content Include="email3.jpg" />
     <Content Include="Pages\About.aspx" />
-    <Content Include="Pages\AllMail.aspx" />
     <Content Include="Pages\Compose.aspx" />
     <Content Include="Pages\Contact.aspx" />
     <Content Include="Content\ownstylesheet.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Pages\Drafts.aspx" />
     <Content Include="Pages\Inbox.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Login.Master" />
     <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\Profile.aspx" />
     <Content Include="Pages\SignUp.aspx" />
     <Content Include="Pages\ViewMail.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -370,13 +370,6 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Pages\AllMail.aspx.cs">
-      <DependentUpon>AllMail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\AllMail.aspx.designer.cs">
-      <DependentUpon>AllMail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Compose.aspx.cs">
       <DependentUpon>Compose.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -390,13 +383,6 @@
     </Compile>
     <Compile Include="Pages\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Drafts.aspx.cs">
-      <DependentUpon>Drafts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Drafts.aspx.designer.cs">
-      <DependentUpon>Drafts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inbox.aspx.cs">
       <DependentUpon>Inbox.aspx</DependentUpon>
@@ -421,6 +407,13 @@
     </Compile>
     <Compile Include="Pages\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Sent.aspx.cs">
       <DependentUpon>Sent.aspx</DependentUpon>

@@ -1,8 +1,12 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Inbox.aspx.cs" Inherits="Email_System.Pages.Inbox" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label ID="Label1" runat="server" Text="Hii"></asp:Label>
-    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+
+    <nav class="navbar navbar-light bg-primary">
+      <div class="container-fluid justify-content-center">
+        <h1 class="text-light">Inbox</h1>
+      </div>
+    </nav>
 
     <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="100%" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1">
 

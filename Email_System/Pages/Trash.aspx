@@ -1,7 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Trash.aspx.cs" Inherits="Email_System.Pages.Trash" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    Trash<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="100%">
+
+    <nav class="navbar navbar-light bg-primary">
+      <div class="container-fluid justify-content-center">
+        <h1 class="text-light">Trash</h1>
+      </div>
+    </nav>
+
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="100%">
         <Columns>
             <asp:BoundField DataField="EMailSubject" HeaderText="Mail Subject" SortExpression="EMailSubject" />
             <asp:BoundField DataField="FromUserEmailId" HeaderText="From" SortExpression="FromUserEmailId" />
@@ -18,6 +25,14 @@
                     <asp:LinkButton BorderColor="Black" runat="server" ID="StarMail"
                         CommandArgument='<%#Eval("Id")%>' OnClick="StarMail_Click">
                         <i class="fas fa-star"></i></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                <ItemTemplate>
+                    <asp:LinkButton BorderColor="Black" runat="server" ID="RestoreMail"
+                        CommandArgument='<%#Eval("Id")%>' OnClick="RestoreMail_Click">
+                        <i class="fas fa-trash-restore"></i></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

@@ -23,8 +23,6 @@ namespace Email_System.Pages
             }
             UserName = (string)Session["user"];
             UserEmail = (string)Session["email"];
-            Label1.Text = UserName;
-            Label2.Text = UserEmail;
         }
 
         protected void StarMail_Click(object sender, EventArgs e)

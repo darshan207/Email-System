@@ -15,6 +15,9 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.css" integrity="sha512-4wfcoXlib1Aq0mUtsLLM74SZtmB73VHTafZAvxIp/Wk9u1PpIsrfmTvK0+yKetghCL8SHlZbMyEcV8Z21v42UQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrapcss">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <form runat="server">
@@ -37,8 +40,18 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <div class="wrapper">
+        <div class="wrapper w-100 h-100">
             <div class="sidebar">
+                <div class="usericon">
+                    <%-- <i class="fa fa-user-circle usericons" aria-hidden="true"></i>--%>
+                    <div class="dropdown">
+                        <button class="dropbtn"><i class="fa fa-user usericons" aria-hidden="true"></i> <asp:Label ID="Label12" runat="server" Text=""></asp:Label></button>
+                        <div class="dropdown-content">
+                            <a runat="server" href="~/Pages/Profile">Profile</a>
+                            <a runat="server" href="~/Pages/Logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="compose-button" style="text-align: center">
                     <a runat="server" href="~/Pages/Compose"><i class="far fa-edit"></i>Compose</a>
                 </div>
@@ -46,15 +59,10 @@
                     <li><a runat="server" href="~/Pages/Inbox"><i class="fas fa-inbox"></i>Inbox</a></li>
                     <li><a runat="server" href="~/Pages/Starred"><i class="fas fa-star"></i>Starred</a></li>
                     <li><a runat="server" href="~/Pages/Sent"><i class="fas fa-paper-plane"></i>Sent</a></li>
-                    <li><a runat="server" href="~/Pages/Drafts"><i class="fas fa-file-alt"></i>Drafts</a></li>
-                    <li><a runat="server" href="~/Pages/AllMail"><i class="fas fa-envelope"></i>All Mail</a></li>
                     <li><a runat="server" href="~/Pages/Trash"><i class="fas fa-trash"></i>Trash</a></li>
                     <li><a runat="server" href="~/Pages/About">About</a></li>
                     <li><a runat="server" href="~/Pages/Contact">Contact</a></li>
                 </ul>
-                <div class="compose-button" style="text-align: center">
-                    <a runat="server" href="~/Pages/Logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
-                </div>
             </div>
             <div class="main_content">
                 <div class="container body-content">

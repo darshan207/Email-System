@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Compose.aspx.cs" Inherits="Email_System.Pages.Compose" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+    <nav class="navbar navbar-light bg-primary">
+      <div class="container-fluid justify-content-center">
+        <h1 class="text-light">Compose</h1>
+      </div>
+    </nav>
+
     <table>
         <tr>
             <td style=" width: 169px;">
