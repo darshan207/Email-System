@@ -12,71 +12,79 @@ namespace Email_System.Pages
 {
     public partial class Inbox : Page
     {
+        private int id;
+        private Email email;
+        private string UserName;
+        private string UserEmail;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null && Session["email"] == null){
                 Response.Redirect("~/");
             }
-            Label1.Text = (string)Session["user"];
-            Label2.Text = (string)Session["email"];
-            if (!IsPostBack)
-            {
-                BindGrid();
-            }
+            UserName = (string)Session["user"];
+            UserEmail = (string)Session["email"];
+            Label1.Text = UserName;
+            Label2.Text = UserEmail;
         }
-        private void BindGrid()
+
+        protected void StarMail_Click(object sender, EventArgs e)
         {
+            LinkButton btn = (LinkButton)sender;
+            id = int.Parse(btn.CommandArgument.ToString());
             EmailDbContext db = new EmailDbContext();
-            string user = Session["user"].ToString();
-            User ToUser = db.Users.Where(b => b.UserName == user).FirstOrDefault();
-            int ToUserId = ToUser.Id;
-            string constr = ConfigurationManager.ConnectionStrings["emaildb"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            email = db.Emails.Where(b => b.Id == id).FirstOrDefault();
+            if (email.FromUserEmailId == UserEmail)
             {
-                using (SqlCommand cmd = new SqlCommand())
+                if (email.Is_FromUser_Starred == true)
                 {
-                    cmd.CommandText = "select Id, AttachmentName from Emails where ToUserId =" + ToUserId + " AND AttachmentName !='NULL'";
-                    cmd.Connection = con;
-                    con.Open();
-                    GridView1.DataSource = cmd.ExecuteReader();
-                    GridView1.DataBind();
-                    con.Close();
+                    email.Is_FromUser_Starred = false;
+                }
+                else
+                {
+                    email.Is_FromUser_Starred = true;
+                    email.Is_Sent = true;
+                    email.Is_FromUser_Delete = false;
                 }
             }
+            else if (email.ToUserEmailId == UserEmail)
+            {
+                if (email.Is_ToUser_Starred == true)
+                {
+                    email.Is_ToUser_Starred = false;
+                }
+                else
+                {
+                    email.Is_ToUser_Starred = true;
+                    email.Is_Inbox = true;
+                    email.Is_ToUser_Delete = false;
+                }
+            }
+            db.SaveChanges();
+            Response.Redirect("~/Pages/Inbox");
         }
-        protected void DownloadFile(object sender, EventArgs e)
+
+        protected void DeleteMail_Click(object sender, EventArgs e)
         {
-            int id = int.Parse((sender as LinkButton).CommandArgument);
-            byte[] filebytes;
-            string fileName, fileType;
-            string constr = ConfigurationManager.ConnectionStrings["emaildb"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            LinkButton btn = (LinkButton)sender;
+            id = int.Parse(btn.CommandArgument.ToString());
+            EmailDbContext db = new EmailDbContext();
+            email = db.Emails.Where(b => b.Id == id).FirstOrDefault();
+            if (email.FromUserEmailId == UserEmail)
             {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "select AttachmentName,AttachmentType, AttachmentData from Emails where Id=@Id";
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    cmd.Connection = con;
-                    con.Open();
-                    using (SqlDataReader sdr = cmd.ExecuteReader())
-                    {
-                        sdr.Read();
-                        filebytes = (byte[])sdr["AttachmentData"];
-                        fileType = sdr["AttachmentType"].ToString();
-                        fileName = sdr["AttachmentName"].ToString();
-                    }
-                    con.Close();
-                }
+                email.Is_FromUser_Delete = true;
+                email.Is_Sent = false;
+                email.Is_FromUser_Starred = false;
+                ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Email has been deleted.');", true);
             }
-            Response.Clear();
-            Response.Buffer = true;
-            Response.Charset = "";
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.ContentType = fileType;
-            Response.AppendHeader("Content-Disposition", "attachment; filename=" + fileName);
-            Response.BinaryWrite(filebytes);
-            Response.Flush();
-            Response.End();
+            else if (email.ToUserEmailId == UserEmail)
+            {
+                email.Is_ToUser_Delete = true;
+                email.Is_ToUser_Starred = false;
+                email.Is_Inbox = false;
+                ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Email has been deleted.');", true);
+            }
+            db.SaveChanges();
+            Response.Redirect("~/Pages/Inbox");
         }
     }
 }

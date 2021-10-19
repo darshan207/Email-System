@@ -11,9 +11,9 @@ namespace Email_System.Models
         [Required]
         public int Id { get; set; }
         [Required]
-        public int FromUserId { get; set; }
+        public string FromUserEmailId { get; set; }
         [Required]
-        public int ToUserId { get; set; }
+        public string ToUserEmailId { get; set; }
         public string EmailSubject { get; set; }
         [Required]
         public string EmailText { get; set; }
