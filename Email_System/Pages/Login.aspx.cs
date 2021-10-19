@@ -28,8 +28,8 @@ namespace Email_System.Pages
             {
                 if (u.UserPass.Equals(Pass.Text))
                 {
-                    Session["user"] = u.UserName;
-                    Session["email"] = u.UserEmailId;
+                    Session["user"] = u.UserName.ToString();
+                    Session["email"] = u.UserEmailId.ToString();
                     Response.Redirect("~/Pages/Inbox");
                 }
                 else
