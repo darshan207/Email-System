@@ -15,6 +15,5 @@ namespace Email_System
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Email> Emails { get; set; }
-        public DbSet<UserEmailService> UserEmailServices { get; set; }
     }
 }

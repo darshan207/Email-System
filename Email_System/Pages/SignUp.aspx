@@ -34,8 +34,7 @@
                     <label>LastName</label>
                 </div>
             </div>
-            <br />
-            
+            <br />                     
             <div class="user-box">
                 <asp:TextBox  ID="dob" TextMode="Date" runat="server" class="input" placeholder="Date Of Birth"/>
                         <asp:RequiredFieldValidator ForeColor="Red" Font-Size="Medium" ControlToValidate="dob" ID="RequiredFieldValidator6" runat="server" ErrorMessage="DOB must be required!"></asp:RequiredFieldValidator>
