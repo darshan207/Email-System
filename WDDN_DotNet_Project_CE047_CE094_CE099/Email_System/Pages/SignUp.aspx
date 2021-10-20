@@ -60,6 +60,7 @@
                     <asp:RequiredFieldValidator ForeColor="Red" Font-Size="Medium" ControlToValidate="c_password" ID="RequiredFieldValidator3" runat="server" ErrorMessage="Confirm Password must be required!"></asp:RequiredFieldValidator>
                     <br />
                     <asp:CompareValidator ForeColor="Red" Font-Size="Medium" ID="CompareValidator1" ControlToValidate="password" ControlToCompare="c_password" runat="server" ErrorMessage="Passwords are not match !"></asp:CompareValidator>
+                    <br />
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2"
                         runat="server"
                         ForeColor="Red" Font-Size="Medium"
